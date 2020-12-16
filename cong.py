@@ -13,4 +13,5 @@ def my_record(rate=16000):
     print("录音完成！")
 
 
-my_record()
+if __name__ == "__main__":
+    my_record()
