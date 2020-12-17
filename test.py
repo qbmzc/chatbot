@@ -6,7 +6,7 @@ import pyaudio
 import pygame
 import time
 urls = 'http://openapi.tuling123.com/openapi/api/v2'   # 图灵接口的url
-api_key = "38a0a09b87424c948d5ad92e7964e3db"
+api_key = "e9c53ad2f0834d0bbe93f0c5e5cc64ac"
 
 count = 1  # 用来计数输入的次数
 def record(seconds,filename):
@@ -39,9 +39,9 @@ def record(seconds,filename):
     wf.close()
     return filename
 """ 你的 APPID AK SK """
-APP_ID = '20178217'
-API_KEY = 'DXpGC2WesUxvGpzcqFuk55de'
-SECRET_KEY = 'ILPB25e9GSOAnxlokVSu4yWVVik2qtz9'
+APP_ID = '10563438'
+API_KEY = 'gDz0samrO2cB7gMGuqHw2skN'
+SECRET_KEY = '1950a96adb7d349c62f7d2a907ef13ec'
 
 client = AipSpeech(APP_ID, API_KEY, SECRET_KEY)
 # 语音识别
@@ -74,18 +74,18 @@ def Turing(data,n):
     })
     # 识别正确返回语音二进制 错误则返回dict 参照下面错误码
     if not isinstance(result2, dict):
-        with open('F:\\auido{}.mp3'.format(n), 'wb') as f:
+        with open('./auido{}.mp3'.format(n), 'wb') as f:
             f.write(result2)
     pygame.mixer.init()
-    pygame.mixer.music.load("F:\\auido{}.mp3".format(n))
+    pygame.mixer.music.load("./auido{}.mp3".format(n))
     pygame.mixer.music.play()
     time.sleep(10)
     f.close()
 if __name__ == "__main__":
     print("Niubility：主人您好，我是Niubility，爱你哦~")
     for n in range(1,51):
-        record(5,'F:\\auido.wav')
-        result = client.asr(get_file_content('F:\\auido.wav'), 'wav', 16000, {
+        record(5,'./auido.wav')
+        result = client.asr(get_file_content('./auido.wav'), 'wav', 16000, {
             'dev_pid': 1537,
         })
         mm = result['result'][0]

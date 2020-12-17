@@ -26,4 +26,4 @@ def record(seconds, filename):
     return filename
 
 
-record(10, 'F:\\auido.wav')
+record(5, './auido.wav')
