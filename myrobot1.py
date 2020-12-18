@@ -24,18 +24,18 @@ def my_record(rate=16000):
         print("please say something")
         audio = r.listen(source)
 
-    with open("voices/myvoices.wav", "wb") as f:
+    with open("./voices/myvoices.wav", "wb") as f:
         f.write(audio.get_wav_data())
 
 
 # 2、音频文件转文字：采用百度的语音识别python-SDK
 # 导入我们需要的模块名，然后将音频文件发送给出去，返回文字。
 # 百度语音识别API配置参数
-APP_ID = 'your app_id'
-API_KEY = 'your api_key'
-SECRET_KEY = 'your secret_key'
+APP_ID = '10563438'
+API_KEY = 'gDz0samrO2cB7gMGuqHw2skN'
+SECRET_KEY = '1950a96adb7d349c62f7d2a907ef13ec'
 client = AipSpeech(APP_ID, API_KEY, SECRET_KEY)
-path = 'voices/myvoices.wav'
+path = './voices/myvoices.wav'
 
 
 # 将语音转文本STT
@@ -60,7 +60,7 @@ def listen():
 
 # 3、与机器人对话：调用的是图灵机器人
 # 图灵机器人的API_KEY、API_URL
-turing_api_key = "your turing_api_key"
+turing_api_key = "e9c53ad2f0834d0bbe93f0c5e5cc64ac"
 api_url = "http://openapi.tuling123.com/openapi/api/v2"  # 图灵机器人api网址
 headers = {'Content-Type': 'application/json;charset=UTF-8'}
 
@@ -76,9 +76,9 @@ def Turing(text_words=""):
 
             "selfInfo": {
                 "location": {
-                    "city": "北京",
-                    "province": "北京",
-                    "street": "车公庄"
+                    "city": "上海",
+                    "province": "上海",
+                    "street": "青浦"
                 }
             }
         },
