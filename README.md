@@ -6,3 +6,10 @@
 # 录音
 pip install SpeechRecognition
 ```
+## 百度api
+
+```shell
+pip install baidu-aip
+# 录音
+pywin32
+```
