@@ -2,6 +2,9 @@ from tkinter import *
 import time
 
 
+def robot():
+    pass
+
 def main():
     def sendMsg():  # 发送消息
         strMsg = '我:' + time.strftime("%Y-%m-%d %H:%M:%S",
