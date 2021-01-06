@@ -10,6 +10,6 @@ pip install SpeechRecognition
 
 ```shell
 pip install baidu-aip
-# 录音
-pywin32
+## 播放声音
+pip install pywin32
 ```
