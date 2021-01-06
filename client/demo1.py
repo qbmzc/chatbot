@@ -101,11 +101,11 @@ def main():
             request = listen()
             response = Turing(request)
             speaker.Speak(response)
-            sendMsg(request, response)
+            # sendMsg(request, response)
 
-    def sendMsg(request, response):  # 发送消息
-
-        print(request)
+    def sendMsg():  # 发送消息
+        my_record()
+        request = listen()
         strMsg = '我:' + time.strftime("%Y-%m-%d %H:%M:%S",
                                       time.localtime()) + '\n '
         txtMsgList.insert(END, strMsg, 'greencolor')
@@ -115,9 +115,11 @@ def main():
         responseMsg = '小枀:' + time.strftime("%Y-%m-%d %H:%M:%S",
                                             time.localtime()) + '\n '
         txtMsgList.insert(END, responseMsg, 'greencolor')
+        response = Turing(request)
         txtMsgList.insert(END, response + '\n ')
+        speaker.Speak(response)
         txtMsg.delete('0.0', END)
-        print(response)
+        # print(response)
 
     def cancelMsg():  # 取消消息
         flag = 0
@@ -126,6 +128,7 @@ def main():
 
     def sendMsgEvent(event):  # 发送消息事件
         if event.keysym == "Return":
+            # start_chat()
             sendMsg()
 
     # 创建窗口
@@ -141,9 +144,11 @@ def main():
     # 创建控件
     txtMsgList = Text(frmLT)
     txtMsgList.tag_config('greencolor', foreground='#008C00')  # 创建tag
+    scrollBar = Scrollbar(frmLT)
+    scrollBar.pack(side=RIGHT, fill=Y)
     txtMsg = Text(frmLC)
-    txtMsg.bind("<KeyPress-Return>", start_chat)
-    btnSend = Button(frmLB, text='开始聊天', width=8, command=start_chat)
+    txtMsg.bind("<KeyPress-Return>", sendMsgEvent)
+    btnSend = Button(frmLB, text='开始聊天', width=8, command=sendMsg())
     btnCancel = Button(frmLB, text='结束对话', width=8, command=cancelMsg)
     imgInfo = PhotoImage(file="bg.png")
     lblImage = Label(frmRT, image=imgInfo)
