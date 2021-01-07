@@ -13,3 +13,9 @@ pip install baidu-aip
 ## 播放声音
 pip install pywin32
 ```
+
+## 打包
+
+```shell
+pyinstaller -F -i favicon.ico  encode_to_gbk.py --noconsole
+```

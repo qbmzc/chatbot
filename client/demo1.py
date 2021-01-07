@@ -144,8 +144,6 @@ def main():
     # 创建控件
     txtMsgList = Text(frmLT)
     txtMsgList.tag_config('greencolor', foreground='#008C00')  # 创建tag
-    scrollBar = Scrollbar(frmLT)
-    scrollBar.pack(side=RIGHT, fill=Y)
     txtMsg = Text(frmLC)
     txtMsg.bind("<KeyPress-Return>", sendMsgEvent)
     btnSend = Button(frmLB, text='开始聊天', width=8, command=sendMsg())
